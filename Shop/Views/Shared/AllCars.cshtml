@@ -1,0 +1,20 @@
+﻿@model Car
+@using System;
+@using System.Globalization;
+
+
+@*<div class="slider__item">
+        <div style="height: 250px; ">
+            <a asp-controller="Cars" asp-action="CarDetails" asp-route-id="@Model.id"><img class="img-thumbnail" src="@Model.img" ></a>
+        </div>
+    </div>*@
+
+<div class="col-lg-3">
+
+    <a asp-controller="Cars" asp-action="CarDetails" asp-route-id="@Model.id"><img class="img-thumbnail" src="@Model.img" alt="@Model.name" /></a>
+    
+    <h2>@Model.name</h2>
+    <p>Price: @Model.price.ToString("c", new CultureInfo("en-US"))</p>
+    <p><a class="btn btn-warning" asp-controller="shopCart" asp-action="addToCart" asp-route-id="@Model.id">Add to cart</a></p>
+</div>
+

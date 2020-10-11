@@ -1,0 +1,24 @@
+﻿@using System.Globalization;
+@model ShopCartViewModel
+
+<div class="container">
+    @if (Model.shopCart.listShopItems.Count > 0)
+    {
+        @foreach (var el in Model.shopCart.listShopItems)
+        {
+            <div class="alert alert-warning mt-3">
+                <b>Автомобиль:</b> @el.car.name<br />
+                <b>Цена:</b>@el.car.price.ToString("c", new CultureInfo("en-US"))
+            </div>
+        }
+    }
+    else
+    {
+        <div class="borderdiv">
+            <h3>Cart is empty</h3>
+            <br />
+        </div>
+    }
+    <a class="btn btn-danger" asp-controller="Order" asp-action="Checkout">Pay</a>
+</div>
+

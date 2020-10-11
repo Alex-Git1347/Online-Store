@@ -1,0 +1,28 @@
+﻿@model Car
+@using System;
+@using System.Globalization;
+
+@*<div>
+
+    <p><span>@Model.name</span></p>
+    <p><span>@Model.price</span></p>
+    <p><span>@Model.shortDesc</span></p>
+
+</div>*@
+@*<div class="maxSize" >
+        <img src="@Model.img" />
+    </div>*@
+<div>
+<div class="maxSize">
+
+    <img class="img-thumbnail" src="@Model.img" alt="@Model.name" />
+    <p><a class="btn btn-warning" asp-controller="shopCart" asp-action="addToCart" asp-route-id="@Model.id">Add to cart</a></p>
+</div>
+<div class="divCar">
+
+    <p><span>Name: @Model.name</span></p>
+    <p><span>@Model.shortDesc</span></p>
+    <p>Price: @Model.price.ToString("c", new CultureInfo("en-US"))</p>
+</div>
+    </div>
+

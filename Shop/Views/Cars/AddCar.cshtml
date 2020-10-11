@@ -1,0 +1,71 @@
+﻿@model Car
+
+    
+<div class="divForm">
+    <h3>Добавление автомобиля</h3>
+    <form asp-controller="Cars" asp-action="AddCar" method="post" class="form-horizontal" enctype="multipart/form-data">
+        <div class="form-group">
+            <label asp-for="name">Model</label>
+            <div class="col-md-5">
+                <input asp-for="name" class="form-control" />
+                <span asp-validation-for="name" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="price">Price</label>
+            <div class="col-md-5">
+                <input asp-for="price" class="form-control" />
+                <span asp-validation-for="price" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="shortDesc">Short Description</label>
+            <div class="col-md-5">
+                <input asp-for="shortDesc" class="form-control" />
+                <span asp-validation-for="shortDesc" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="longDescription">Description</label>
+            <div class="col-md-5">
+                <input asp-for="longDescription" class="form-control" />
+                <span asp-validation-for="longDescription" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="isFavourite"></label>
+            <div class="col-md-5">
+                <input asp-for="isFavourite" class="form-control" />
+                <span asp-validation-for="isFavourite" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="available">Available</label>
+            <div class="col-md-5">
+                <input asp-for="available" class="form-control" />
+                <span asp-validation-for="available" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="categoryID">Id category</label>
+            <div class="col-md-5">
+                <input asp-for="categoryID" class="form-control" />
+                <span asp-validation-for="categoryID" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Image</label>
+            <div class="col-md-5">
+                <input type="file" name="uploadedFile" class="form-control" /><br>
+                <span asp-validation-for="img" class="text-danger"></span>
+            </div>
+        </div>
+        <input class="btn btn-success" type="submit" value="Add car" />
+    </form>
+
+    @*<h3>Выберите файл для загрузки</h3>
+        <form asp-action="AddFile" asp-controller="Cars" method="post" enctype="multipart/form-data">
+            <input type="file" name="uploadedFile" /><br>
+            <input type="submit" value="Загрузить" />
+        </form>*@
+</div>
