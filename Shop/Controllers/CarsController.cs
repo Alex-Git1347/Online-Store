@@ -10,6 +10,7 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Shop.Controllers
 {
@@ -31,6 +32,7 @@ namespace Shop.Controllers
 
         [Route("Cars/List")]
         [Route("Cars/List/{category}")]
+        [Authorize(Roles = "admin,user")]
         public ViewResult List(string category)
         {
             //Электромобили  Классические автомобили
@@ -72,6 +74,7 @@ namespace Shop.Controllers
 
         
         [Route("Cars/CarDetails/{id}")]
+        [Authorize(Roles = "admin,user")]
         public ViewResult CarDetails(int id)
         {
             Car car = null;
@@ -82,6 +85,7 @@ namespace Shop.Controllers
 
 
         [HttpPost]
+        [Authorize(Roles = "admin")]
         public void AddCar(Car car,IFormFile uploadedFile)
         {
             if (uploadedFile != null)
@@ -119,6 +123,7 @@ namespace Shop.Controllers
             return View("test");
         }
 
+        [Authorize(Roles = "admin")]
         public ViewResult addcarView(Car newCar)
         {
             return View("AddCar");
