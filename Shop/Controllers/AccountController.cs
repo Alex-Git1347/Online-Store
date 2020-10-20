@@ -14,6 +14,7 @@ namespace Shop.Controllers
 {
     public class AccountController : Controller
     {
+        private LoginModel loginPerson;
         private AppDBContent _context;
         public AccountController(AppDBContent context)
         {
@@ -68,13 +69,24 @@ namespace Shop.Controllers
                 if (user != null)
                 {
                     await Authenticate(user); // аутентификация
-                    
+                    ViewBag.Message = user.Email;
+
                     return RedirectToAction("Index", "Home");
                 }
                 ModelState.AddModelError("", "Некорректные логин и(или) пароль");
             }
             return View(model);
         }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Logout()
+        {
+            await HttpContext.SignOutAsync();
+
+            return RedirectToAction("Index", "Home");
+        }
+
         private async Task Authenticate(User user)
         {
             // создаем один claim
@@ -88,6 +100,7 @@ namespace Shop.Controllers
                 ClaimsIdentity.DefaultRoleClaimType);
             // установка аутентификационных куки
             await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(id));
+            
         }
     }
 }

@@ -1,6 +1,15 @@
 ﻿@model HomeViewModel
 
 <h2>Best Cars</h2>
+@*<h3>Hello @ViewBag.Message</h3>*@
+@if (User.Identity.IsAuthenticated)
+{
+    <p>@User.Identity.Name</p>
+
+    @*<form method="post" asp-controller="Account" asp-action="Logout">
+        <input type="submit" value="Выход" />
+    </form>*@
+}
 <div class="row mt-5 mb-2">
     @{
         foreach (Car car in Model.favCars)

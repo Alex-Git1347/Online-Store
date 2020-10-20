@@ -128,5 +128,12 @@ namespace Shop.Controllers
         {
             return View("AddCar");
         }
+
+        
+        public ViewResult Test(Car newCar)
+        {
+            return View("Test");
+        }
     }
 }
+    

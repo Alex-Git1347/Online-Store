@@ -2,7 +2,9 @@
 @using System;
 @using System.Globalization;
 <h2>@Model.currCategory</h2>
-
+<form method="post" asp-controller="Account" asp-action="LogOut">
+    <input type="submit" value="Выход" />
+</form>
 @*@if (Model.currCategory == "Electric Cars" || "Fuel Cars")
     {*@
 @*<div class="col-lg-3">
@@ -19,14 +21,15 @@
 
 
     @if (Model.currCategory == "Electric Cars" || Model.currCategory == "Fuel Cars")
-    {<div class="row mt-5 mb-2">
+    {
+        <div class="row mt-5 mb-2">
 
     @foreach (Car car in Model.allCars)
     {
-    @Html.Partial("AllCars", car)
+        @Html.Partial("AllCars", car)
 
     }
-    </div>
+        </div>
 }
 
 else
@@ -45,10 +48,8 @@ else
                             </div>
                         </div>
                     }
-
-}
-
-
+                    
+                }
             </div>
             <a class="slider__control slider__control_left" href="#" role="button"></a>
             <a class="slider__control slider__control_right slider__control_show" href="#" role="button"></a>

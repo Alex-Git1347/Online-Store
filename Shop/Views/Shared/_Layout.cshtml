@@ -36,6 +36,9 @@
                     <li class="nav-item">
                         <a class="nav-link " href="/Cars/addcarView">Add</a>
                     </li>
+                    @*<li class="nav-item">
+                        <a class="nav-link " href="#zatemnenie">LogIn</a>
+                    </li>*@
                 </ul>
                 <form class="form-inline mt-2 mt-md-0">
                     <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
@@ -43,17 +46,27 @@
                 </form>
             </div>
         </nav>
-    </header>
-    @*<div class="container mt-5">*@
-    @RenderBody()
-    @*</div>*@
 
-    
+
+    </header>
+    @RenderBody()
+    @*<div id="zatemnenie">
+
+        <div id="okno">
+            Всплывающее окошко!<br>
+            
+            <a href="#" class="close">Закрыть окно</a>
+        </div>
+    </div>*@
+
+
+
     <script src="~/js/bootstrap.min.js"></script>
     <script src="~/js/slider.js"></script>
+    <link href="~/css/Style.css" rel=" stylesheet" type="text/css" />
 </body>
 <footer class="container">
     <p class="float-right"><a href="#">Back to top</a></p>
-    <p>© 2017-2020 Company, Inc. · <a href="#">Privacy</a>
+    <p>© 2017-2020 Company, Inc. · <a href="#">Privacy</a></p>
 </footer>
 </html>
