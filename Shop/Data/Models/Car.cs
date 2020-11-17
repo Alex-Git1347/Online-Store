@@ -26,5 +26,26 @@ namespace Shop.Data.Models
         public int categoryID { set; get; }
          
         public virtual Category Category { set; get; }
+
+        public string yearBorn { set; get; }
+
+        public string colour { set; get; }
+
+        public double volumeDVS { set; get; }
+
+        public string bodyType { set; get; }
+
+        public string cityCar { set; get; }
+
+        public int? companyID { set; get; }
+
+        public Company company { set; get; }
+        public string modelCar { set; get; }
+
+        public int mileageCar { set; get; }
+
+        public string typeDVS { set; get; }
+
+        public DateTime dataPublished { set; get; }
     }
 }

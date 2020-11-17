@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Shop.Data;
 
 namespace Shop.Migrations
 {
     [DbContext(typeof(AppDBContent))]
-    partial class AppDBContentModelSnapshot : ModelSnapshot
+    [Migration("20201117010919_NewTableCompany")]
+    partial class NewTableCompany
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -27,17 +29,7 @@ namespace Shop.Migrations
 
                     b.Property<bool>("available");
 
-                    b.Property<string>("bodyType");
-
                     b.Property<int>("categoryID");
-
-                    b.Property<string>("cityCar");
-
-                    b.Property<string>("colour");
-
-                    b.Property<int?>("companyID");
-
-                    b.Property<DateTime>("dataPublished");
 
                     b.Property<string>("img");
 
@@ -45,27 +37,15 @@ namespace Shop.Migrations
 
                     b.Property<string>("longDescription");
 
-                    b.Property<int>("mileageCar");
-
-                    b.Property<string>("modelCar");
-
                     b.Property<string>("name");
 
                     b.Property<long>("price");
 
                     b.Property<string>("shortDesc");
 
-                    b.Property<string>("typeDVS");
-
-                    b.Property<double>("volumeDVS");
-
-                    b.Property<string>("yearBorn");
-
                     b.HasKey("id");
 
                     b.HasIndex("categoryID");
-
-                    b.HasIndex("companyID");
 
                     b.ToTable("Car");
                 });
@@ -218,10 +198,6 @@ namespace Shop.Migrations
                         .WithMany("cars")
                         .HasForeignKey("categoryID")
                         .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("Shop.Data.Models.Company", "company")
-                        .WithMany()
-                        .HasForeignKey("companyID");
                 });
 
             modelBuilder.Entity("Shop.Data.Models.OrderDetail", b =>
