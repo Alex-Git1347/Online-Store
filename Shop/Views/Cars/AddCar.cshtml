@@ -60,12 +60,46 @@
                 <span asp-validation-for="img" class="text-danger"></span>
             </div>
         </div>
+        @*<p>
+            Команда <br />
+            @Html.DropDownListFor(model => model.companyID, ViewBag.Companies as SelectList)
+        </p>*@
+        @*<div class="row">
+            <span class="label">Select Text</span>
+            <span class="box">
+            <input type="text" name="data" class="datatext" id="datatext">
+            <select class="contentselect" id="contentselect">
+                <option></option>
+                <option value="one">test1</option>
+                <option value="two">test2</option>
+                </select>
+            </span>
+        </div>*@
+    <div class="form-group">
+        <label asp-for="companyID">Company</label>
+        <div class="col-md-5">
+            <input asp-for="companyID" type="hidden" name="data" class="datatext" id="datatext" />
+            <select asp-for="companyID"  asp-items="@(ViewBag.Companies)" class="contentselect" id="contentselect"></select>
+        </div>
+        <span asp-validation-for="companyID" class="text-danger"></span>
+    </div>
         <input class="btn btn-success" type="submit" value="Add car" />
     </form>
-
+    
     @*<h3>Выберите файл для загрузки</h3>
         <form asp-action="AddFile" asp-controller="Cars" method="post" enctype="multipart/form-data">
             <input type="file" name="uploadedFile" /><br>
             <input type="submit" value="Загрузить" />
         </form>*@
 </div>
+<script>
+    textfield = document.getElementById("datatext");
+    contentselect = document.getElementById("contentselect");
+
+    contentselect.onchange = function () {
+        var text = contentselect.value //.options[contentselect.selectedIndex].value
+        if (text != "") {
+            textfield.value = text;
+            alert(textfield.value);
+        }
+    }</script>

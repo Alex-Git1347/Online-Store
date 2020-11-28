@@ -10,5 +10,7 @@ namespace Shop.Data.Models
         public int id { set; get; }
 
         public string nameCompany { set; get; }
+
+        public IEnumerable<Car> allCars { get; set; }
     }
 }
