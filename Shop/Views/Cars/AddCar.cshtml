@@ -54,6 +54,13 @@
             </div>
         </div>
         <div class="form-group">
+            <label asp-for="yearBorn">Year born</label>
+            <div class="col-md-5">
+                <input asp-for="yearBorn" class="form-control" />
+                <span asp-validation-for="yearBorn" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
             <label>Image</label>
             <div class="col-md-5">
                 <input type="file" name="uploadedFile" class="form-control" /><br>
@@ -75,14 +82,14 @@
                 </select>
             </span>
         </div>*@
-    <div class="form-group">
-        <label asp-for="companyID">Company</label>
-        <div class="col-md-5">
-            <input asp-for="companyID" type="hidden" name="data" class="datatext" id="datatext" />
-            <select asp-for="companyID"  asp-items="@(ViewBag.Companies)" class="contentselect" id="contentselect"></select>
+        <div class="form-group">
+            <label asp-for="companyID">Company</label>
+            <div class="col-md-5">
+                <input asp-for="companyID" type="hidden" name="data" class="datatext" id="datatext" />
+                <select asp-for="companyID" asp-items="@(ViewBag.Companies)" class="contentselect" id="contentselect"></select>
+            </div>
+            <span asp-validation-for="companyID" class="text-danger"></span>
         </div>
-        <span asp-validation-for="companyID" class="text-danger"></span>
-    </div>
         <input class="btn btn-success" type="submit" value="Add car" />
     </form>
     

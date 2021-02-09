@@ -64,7 +64,6 @@ namespace Shop.Controllers
             string _category = category;
             IEnumerable<Car> cars = null;
             string currCategory = "All Cars";
-            //if (category != null) { currCategory = category; }
             if (string.IsNullOrEmpty(category))
             {
                 cars = _allCars.Cars.OrderBy(i => i.id);
@@ -105,14 +104,7 @@ namespace Shop.Controllers
             Car car = null;
             car = _allCars.getObjectCar(id);
             Company comp = null;
-            //var a= db.Companies.Where(i =>i.id==car.companyID);
-            //car.company = comp.allCars.ElementAtOrDefault((int)car.companyID);
-
             comp = db.Companies.Find(car.companyID);
-            //foreach (var item in a)
-            //{
-            //    comp = item;
-            //}
             car.company = comp;
             ViewBag.Title = "Page with current сar";
             return View(car);
@@ -123,11 +115,6 @@ namespace Shop.Controllers
         [Authorize(Roles = "admin")]
         public void AddCar(Car car,IFormFile uploadedFile)
         {
-            //IEnumerable<Company> companies = null;
-            
-            //    companies = _allCompanies.getAllCompany.OrderBy(i => i.id > 0);
-            
-
             if (uploadedFile != null)
             {
                 // путь к папке Files
@@ -158,7 +145,6 @@ namespace Shop.Controllers
                 {
                     uploadedFile.CopyToAsync(fileStream);
                 }
-                //FileMode file = new FileMode { Name = uploadedFile.FileName, Path = path };
             }
             return View("test");
         }
@@ -171,17 +157,9 @@ namespace Shop.Controllers
         {
             SelectList companies = new SelectList(db.Companies, "id", "nameCompany");
             ViewBag.Companies = companies;
-            //Company company = db.Companies.Find();
-            //List<Company> a = db.Companies.Where(m => m.id > 0);
-
             return View();
         }
 
-        
-        public ViewResult Test(Car newCar)
-        {
-            return View("Test");
-        }
     }
 }
     
