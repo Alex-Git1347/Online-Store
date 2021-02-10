@@ -33,8 +33,6 @@ namespace Shop.Data.Models
 
         public double volumeDVS { set; get; }
 
-        public string bodyType { set; get; }
-
         public string cityCar { set; get; }
 
         public int? companyID { set; get; }
@@ -47,5 +45,9 @@ namespace Shop.Data.Models
         public string typeDVS { set; get; }
 
         public DateTime dataPublished { set; get; }
+
+        public int? CarBodyId { set; get; }
+
+        public CarBodyType CarBody { set; get; }
     }
 }
